@@ -1,26 +1,26 @@
 var margin = {top: 20, right: 20, bottom: 20, left: 20};
 	width = 800 - margin.left - margin.right,
 	height = 500 - margin.top - margin.bottom,
-	formatPercent = d3.format(".1%");
+	formatPercent = d3v3.format(".1%");
 
-var svg = d3.select("#map").append("svg")
+var svg = d3v3.select("#map").append("svg")
 	.attr("width", width + margin.left + margin.right)
 	.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-tooltip = d3.select("body").append("div")
+tooltip = d3v3.select("body").append("div")
 	.attr("class", "tooltip")
 	.style("opacity", 0);
 
 queue()
-	.defer(d3.csv, "../../map_resources/points_average.csv")
-    .defer(d3.json, "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json")
+	.defer(d3v3.csv, "map/map_resources/points_average.csv")
+    .defer(d3v3.json, "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json")
     .await(readyPoints);
     
 // queue()
-//     .defer(d3.json, "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json")
-//     .defer(d3.csv, "price_average.csv")
+//     .defer(d3v3.json, "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json")
+//     .defer(d3v3.csv, "price_average.csv")
 // 	.await(readyPrice);
 
 var pointslegendText = ["83", "84", "85", "86", "87", "88", "89", "90"];
@@ -44,14 +44,14 @@ function readyPoints(error, data, us) {
        }
     } 
 
-	var color = d3.scale.threshold()
+	var color = d3v3.scale.threshold()
 		.domain([83, 84, 85, 86, 87, 89, 90])
 		.range(["#fff7bc", "#fee391", "#fec44f", "#fe9929", "#ec7014", "#cc4c02", "#993404", "#662506"]);
 
-	var projection = d3.geo.albersUsa()
+	var projection = d3v3.geo.albersUsa()
 		.translate([width / 2, height / 2]);
 
-	var path = d3.geo.path()
+	var path = d3v3.geo.path()
 		.projection(projection);
 
 	var stateShapes = svg.selectAll(".state")
@@ -75,8 +75,8 @@ function readyPoints(error, data, us) {
 			.duration(250)
             .style("opacity", 1);
             tooltip.html(d.properties.name + " wines have an average rating of " + d.properties.value)
-			.style("left", (d3.event.pageX + 15) + "px")
-			.style("top", (d3.event.pageY - 28) + "px");
+			.style("left", (d3v3.event.pageX + 15) + "px")
+			.style("top", (d3v3.event.pageY - 28) + "px");
 		})
 		.on("mouseout", function(d) {
 			tooltip.transition()
@@ -88,7 +88,7 @@ function readyPoints(error, data, us) {
 		.attr("id", "legend");
 
 	var legenditem = legend.selectAll(".legenditem")
-		.data(d3.range(8))
+		.data(d3v3.range(8))
 		.enter()
 		.append("g")
 			.attr("class", "legenditem")
@@ -110,13 +110,13 @@ function readyPoints(error, data, us) {
 
 	// function update(year){
 	// 	slider.property("value", year);
-	// 	d3.select(".year").text(year);
+	// 	d3v3.select(".year").text(year);
 	// 	countyShapes.style("fill", function(d) {
 	// 		return color(d.properties.years[year][0].rate)
 	// 	});
 	// }
 
-// 	var slider = d3.select(".slider")
+// 	var slider = d3v3.select(".slider")
 // 		.append("input")
 // 			.attr("type", "range")
 // 			.attr("min", 1996)
@@ -128,7 +128,7 @@ function readyPoints(error, data, us) {
 // 			});
 
 }
-d3.select(self.frameElement).style("height", "685px");
+d3v3.select(self.frameElement).style("height", "685px");
 
 // function readyPrice(error, data, us) {
     
@@ -147,14 +147,14 @@ d3.select(self.frameElement).style("height", "685px");
 //        }
 //     } 
 
-// 	var color = d3.scale.threshold()
+// 	var color = d3v3.scale.threshold()
 // 		.domain([0, 15, 20, 25, 30, 35, 40, 46])
 // 		.range(["#fff7bc", "#fee391", "#fec44f", "#fe9929", "#ec7014", "#cc4c02", "#993404", "#662506"]);
 
-// 	var projection = d3.geo.albersUsa()
+// 	var projection = d3v3.geo.albersUsa()
 // 		.translate([width / 2, height / 2]);
 
-// 	var path = d3.geo.path()
+// 	var path = d3v3.geo.path()
 // 		.projection(projection);
 
 // 	var stateShapes = svg.selectAll(".state")
@@ -178,8 +178,8 @@ d3.select(self.frameElement).style("height", "685px");
 // 			.duration(250)
 //             .style("opacity", 1);
 //             tooltip.html(d.properties.name + " wines have an average rating of " + d.properties.value)
-// 			.style("left", (d3.event.pageX + 15) + "px")
-// 			.style("top", (d3.event.pageY - 28) + "px");
+// 			.style("left", (d3v3.event.pageX + 15) + "px")
+// 			.style("top", (d3v3.event.pageY - 28) + "px");
 // 		})
 // 		.on("mouseout", function(d) {
 // 			tooltip.transition()
@@ -191,7 +191,7 @@ d3.select(self.frameElement).style("height", "685px");
 // 		.attr("id", "legend");
 
 // 	var legenditem = legend.selectAll(".legenditem")
-// 		.data(d3.range(8))
+// 		.data(d3v3.range(8))
 // 		.enter()
 // 		.append("g")
 // 			.attr("class", "legenditem")
@@ -212,3 +212,6 @@ d3.select(self.frameElement).style("height", "685px");
 // 		.text(function(d, i) { return pricelegendText[i]; });
 
 // };
+
+// var clickPrice = d3v3.select(".price")
+// var clickPoints = d3v3.select(".points")

@@ -1,10 +1,7 @@
 from flask import Flask, render_template, jsonify,redirect,request
-from flask_pymongo import PyMongo
 import scrape
 
 app=Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/mars_info"
-mongo = PyMongo(app)
 
 @app.route("/")
 def home():

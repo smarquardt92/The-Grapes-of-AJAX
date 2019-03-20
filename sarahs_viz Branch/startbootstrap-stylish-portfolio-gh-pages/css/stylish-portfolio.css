@@ -19,17 +19,23 @@ body {
 }
 
 .content-section {
-  padding-top: 7.5rem;
-  padding-bottom: 7.5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .content-section-heading h2 {
   font-size: 3rem;
+  /* padding-bottom: 1rem; */
 }
 
 .content-section-heading h3 {
   font-size: 1rem;
   text-transform: uppercase;
+  padding-bottom: 3rem;
+}
+
+.mb-5 {
+  color: #d9948f !important;
 }
 
 h1,
@@ -45,9 +51,9 @@ h6 {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.tips {
+/* .tips {
   
-}
+} */
 /* Map */
 .map {
   height: 30rem;
@@ -222,8 +228,7 @@ h6 {
 
 .callout {
   padding: 15rem 0;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.1))), url("../img/bg-callout.jpg");
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../img/bg-callout.jpg");
+  background: #BA374E;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -235,6 +240,30 @@ h6 {
   display: block;
   max-width: 30rem;
 }
+
+#search {
+  background: #2c2538 !important;
+}
+
+#tips {
+  background: #9c7b76;
+}
+
+#submit {
+  background: #f1e8e7;
+}
+.tips {
+  text-align: left;
+}
+
+.thread-dark  {
+  background: #2c2538 !important;
+}
+
+#scrape_search  {
+  background: #d9948f;
+}
+
 
 .portfolio-item {
   display: block;
@@ -348,9 +377,9 @@ a:hover, a:focus, a:active {
 }
 
 .btn-secondary {
-  background-color: #ecb807 !important;
-  border-color: #ecb807 !important;
-  color: #fff !important;
+  background-color: #f1e8e7 !important;
+  border-color: #f1e8e7 !important;
+  color: #2c2538 !important;
 }
 
 .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
@@ -374,8 +403,4 @@ a:hover, a:focus, a:active {
 
 .text-primary {
   color: #9C7B76 !important;
-}
-
-.text-secondary {
-  color: #ecb807 !important;
 }
