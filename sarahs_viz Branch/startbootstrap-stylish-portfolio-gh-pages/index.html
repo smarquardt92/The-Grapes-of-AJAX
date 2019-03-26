@@ -19,8 +19,6 @@
   <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
 
   <!-- D3 -->
-  <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
-  <script src="map/static/js/d3.js"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="http://d3js.org/queue.v1.min.js"></script>
   <script src="http://d3js.org/topojson.v1.min.js"></script>
@@ -50,14 +48,14 @@
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="#wine_search">Find a Wine</a>
       </li>
-      <li class="sidebar-nav-item">
+      <!-- <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="#about">About Our Project</a>
+      </li> -->
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="viz.html">Geographic Visualizations</a>
       </li>
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#geo_viz">Geographic Visualizations</a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#charts">Visualizations</a>
+        <a class="js-scroll-trigger" href="viz.html">Visualizations</a>
       </li>
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="#contact">Contact</a>
@@ -78,19 +76,20 @@
     <div class="overlay"></div>
   </header>
 
-  <!-- About -->
-  <!-- <section class="content-section bg-light" id="about">
+<!-- About
+<section class="content-section bg-primary text-white text-center" id="about">
     <div class="container text-center">
       <div class="row">
-        <div class="col-lg-10 mx-auto">
-          <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-          <p class="lead mb-5">This theme features a flexible, UX friendly sidebar menu and stock photos from our friends at
-            <a href="https://unsplash.com/">Unsplash</a>!</p>
-          <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">What We Offer</a>
-        </div>
+        <h2 class="mb-5">About the Wines</h2><br>
       </div>
-    </div>
-  </section> -->
+    <div class="row">
+        <p>Our database came from a webscrape of Wine Magazine's website. The database included <br>
+          hundreds of thousands of wines from around the world, but we chose to focus on US based wines.<br></p>
+        </div>
+        </div>
+        </section> -->
+
+
 
   <!-- Database Search -->
   <section class="content-section bg-primary text-white text-center" id="db_search">
@@ -103,13 +102,13 @@
                     <form>
                       <div class="form-group" method="POST">
                           <label for="pricesearch">Price</label>
-                          <input type="text" class="form-control" id="price-search-input" name="price-search" placeholder="Enter a price.">
+                          <input type="text" class="form-control" id="price-search-input" name="price-search" placeholder="Ex. 20">
                           <label for="pointsearch">Point Score</label>
-                          <input type="text" class="form-control" id="point-search-input" name="point-search" placeholder="Enter a point score.">
+                          <input type="text" class="form-control" id="point-search-input" name="point-search" placeholder="Ex. 85">
                           <label for="varietysearch">Variety</label>
-                          <input type="text" class="form-control" id="variety-search-input" name= "variety-search" placeholder="Enter a variety.">
+                          <input type="text" class="form-control" id="variety-search-input" name= "variety-search" placeholder="Ex. Chardonnay">
                           <label for="statesearch">State</label>
-                          <input type="text" class="form-control" id="state-search-input" name="state-search" placeholder="Enter a state.">
+                          <input type="text" class="form-control" id="state-search-input" name="state-search" placeholder="Ex. Washington">
                       </div>
                       <button id="submit" type="submit" class="btn btn-default">Submit</button>
                      </form>
@@ -117,14 +116,14 @@
                 </div>
           
           </div>
-          <div class="col-md-8">
+          <div class="col-sm-8 col-md-8">
               <div class="card" style="width: 50rem;" id="tips">
                   <div class="card-body">
                     <h5 class="card-title">Search Tips & Tricks</h5>
                     <h6 class="card-subtitle mb-2">Like a fine wine, our custom database requires finesse and precision. Follow these tips to ensure a great result:</h6>
                     <p class="card-text">
                         <ul class="tips">
-                            <li>For Price, entire whole dollar amounts. Using cents makes no sense.</li>
+                            <li>For Price, entire whole dollar amounts.</li>
                             <li>This database has U.S. wines, and they're all pretty good. Stick with points scores from 80 to 100.</li>
                             <li>We'll save you some time: The cheapest price you'll find is $4.</li>
                             <li><b>IMPORTANT: All fields must be filled in for the search to work!</b></li>
@@ -181,8 +180,8 @@
             <div class="card-body">
                 <form action = "http://localhost:5000/result" method = "POST">
                   <p>Zipcode <input type = "text" name = "Name" /></p>
+                  <br><br><p><input type = "submit" value = "submit" /></p>
                   <div class="dropdown" id="wine_names">
-                <br><p><input type = "submit" value = "submit" /></p>
               </form>   
           </div>
         </div>
@@ -195,82 +194,13 @@
             </div>
           </div>
       </div>
-        <!-- <div class="row no-gutters">
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
-              <span class="caption">
-                <span class="caption-content">
-                  <h2>Stationary</h2>
-                  <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="img/portfolio-1.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
-              <span class="caption">
-                <span class="caption-content">
-                  <h2>Ice Cream</h2>
-                  <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="img/portfolio-2.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
-              <span class="caption">
-                <span class="caption-content">
-                  <h2>Strawberries</h2>
-                  <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="img/portfolio-3.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
-              <span class="caption">
-                <span class="caption-content">
-                  <h2>Workspace</h2>
-                  <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="img/portfolio-4.jpg" alt="">
-            </a>
-          </div>
-        </div>
-      </div> -->
     </section>
 
-  <!-- Maps -->
-  <section class="callout" id="geo_viz">
-    <div class="container text-center">
-      <h2 class="mx-auto mb-5">Maps</h2>
-      <div id="maps">
-        <!-- <h1>US State's Wine Ratings</h1>
-        <div id="map"></div>
-        <p>Wines are rated out of a 100 point scale.</p>
-      </div>
-      <!-- <a class="btn btn-primary btn-xl" href="https://startbootstrap.com/template-overviews/stylish-portfolio/">Download Now!</a> -->
-    </div> -->
-  </section>
-
-
-  <!-- Call to Action -->
-  <section class="content-section bg-primary text-white" id="charts">
-    <div class="container text-center">
-      <h2 class="mb-4">Visualizations</h2>
-      <!-- <a href="#" class="btn btn-xl btn-light mr-4">Click Me!</a>
-      <a href="#" class="btn btn-xl btn-dark">Look at Me!</a> -->
-    </div>
-  </section>
 
   <!-- Contacts -->
   <section id="contact">
     <div class="container">
-        <h2 class="mb-4">Site Creators:</h2><br>
+        <h2 class="mb-4 text-white" >Site Creators:</h2><br>
 
       <div class="row">
           <div class="col-md-6">
@@ -349,16 +279,13 @@
   <!-- Plugin JavaScript -->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
+  <!-- JS links -->
+  <script type="text/javascript" src="js/db_search.js"></script>
+
   <!-- Custom scripts for this template -->
   <script src="js/stylish-portfolio.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script
-
-  <!-- JS links -->
-  <!-- <script type="text/javascript" src="map/static/js/map_logic.js"></script> -->
-  <script type="text/javascript" src="/sarahs_viz Branch/startbootstrap-stylish-portfolio-gh-pages/js/db_search.js"></script>
-
-
 
 </body>
 

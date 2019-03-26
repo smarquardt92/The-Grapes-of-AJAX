@@ -33,7 +33,7 @@ def scrape_all(inputValue):
     search = soup.find_all('a', class_='analyticsStoreLink')
     time.sleep(2)
     wines.append(search[0]['href'])
-    browser.fill('text','Pinot Noir\r')
+    browser.fill('text', 'Seven Falls Chardonnay')
     browser.click_link_by_id('at_searchProductsBtn')
     time.sleep(3)
     html=browser.html

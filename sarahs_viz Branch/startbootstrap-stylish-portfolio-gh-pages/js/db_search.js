@@ -62,49 +62,23 @@ d3.csv("https://raw.githubusercontent.com/GreciaWhite/Winos-Across-America/atc_b
             Object.entries(display).forEach(function([key, value]) {
             var cell = tbody.append("td");
             cell.text(value);
-            // return cell.designation;
         })
 
         Filter.forEach(function(display)    {
             Object.entries(display).forEach(function([key, value]) {
-                if(key =="winery")
+                if(key =="title")
                 {
-                     console.log("The title of wine  " + value)
                      titles.push(value)
                 }
             }
         )
-        });
-        // console.log(display.designation)
-        
-        // titles = [display.designation];       
-
-        
-        
-    
-        // Filter.forEach(function(list){
-        //     console.log()
-        // })
-
-        // if (Filter = []) {
-        //     alert('No results for this query. Please try again')
-        // };
-        // pointFilter.forEach(function(display) {
-        //     var row = tbody.append("tr");
-        //     Object.entries(display).forEach(function([key, value]) {
-        //         var cell = tbody.append("td");
-        //         cell.text(value);
-        //     })
-        // })
+        });      
     })
 
     
 
 
     painIntheAss(titles);
-    // forEach(i in titles) {
-    //    console.log("msg " + i)
-    // }
     });
 
     function painIntheAss(titles)  {
@@ -123,10 +97,12 @@ d3.csv("https://raw.githubusercontent.com/GreciaWhite/Winos-Across-America/atc_b
     
     function onchange() {
         selectValue = d3.select('select').property('value')
+        console.log(selectValue)
         d3.select('body')
             .append('p')
             .text(selectValue + ' is the last selected option.')
     };
+
     }
     // var data = ["Option 1", "Option 2", "Option 3"];
     // var i;
